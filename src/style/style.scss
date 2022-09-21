@@ -1,6 +1,6 @@
 body {
   // font-family: 'Montserrat';
-  background-color: $back;
+  background-color: $bgColor;
   color: $text;
 }
 
@@ -10,17 +10,52 @@ footer {
   width: fit-content;
 }
 
-.modal {
-width: 200px;
-height: 200px;
-position: absolute;
-top: 45%;
-left: 45%;
-display: block;
+footer {
+  margin-bottom: 30px;
+}
+
+.modalWindow {
+  width: 400px;
+  padding: 30px;
+  position: absolute;
+  top: 15%;
+  left: 35%;
+  display: none;
+  background-color: azure;
+  border-radius: 5px;
+}
+
+form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  input,
+  select,
+  textarea {
+    padding: 5px 10px;
+    width: 360px;
+  }
+  select {
+    width: 380px;
+  }
 }
 
 button {
   display: block;
   margin: 20px 10px 0 auto;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 
+#closeButton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  margin: 0;
+  padding: 0;
+  width: 27px;
+  height: 27px;
 }

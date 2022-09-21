@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/favicon.png" type="image/png" />
-
     <title>Home work #1</title>
   </head>
   <body>
@@ -24,7 +23,35 @@
         </thead>
       </table>
 
-      <button>Create Note</button>
+      <button id="openModalButton">Create Note</button>
+
+      <div class="modalWindow">
+        <button id="closeButton">
+          <img src="./img/cross.png" alt="cross" />
+        </button>
+        <form action="">
+          <input
+            type="text"
+            class="name"
+            minlength="1"
+            placeholder="Enter note name"
+          />
+          <select name="" id="">
+            <option value="Task">Task</option>
+            <option value="Random Thought">Random Thought</option>
+            <option value="Idea">Idea</option>
+          </select>
+          <!-- <input type="text" class="content" minlength="5"> -->
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="5"
+            placeholder="Enter note content"
+          ></textarea>
+          <button id="createNoteButton">Create</button>
+        </form>
+      </div>
 
       <table class="summary_table">
         <thead>
@@ -34,18 +61,18 @@
         </thead>
         <tr>
           <td>Task</td>
-          <td id='activeTask'></td>
-          <td id='archivedTask'></td>
+          <td id="activeTask"></td>
+          <td id="archivedTask"></td>
         </tr>
         <tr>
           <td>Random Thought</td>
-          <td id='activeRandomThought'></td>
-          <td id='archivedRandomThought'></td>
+          <td id="activeRandomThought"></td>
+          <td id="archivedRandomThought"></td>
         </tr>
         <tr>
           <td>Idea</td>
-          <td id='activeIdea'></td>
-          <td id='archivedIdea'></td>
+          <td id="activeIdea"></td>
+          <td id="archivedIdea"></td>
         </tr>
       </table>
     </main>

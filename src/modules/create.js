@@ -6,3 +6,8 @@ export const createImage = (src) => {
     img.style.height = '20px';
     return img
 }
+
+export const createDate = () => {
+    const date = new Date();
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+}
