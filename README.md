@@ -1,2 +1,3 @@
 # note-app
-Application for notes, todo lists, remindings.
+This application for notes, todo lists, remindings.
+

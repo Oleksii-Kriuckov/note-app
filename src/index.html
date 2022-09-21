@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
 
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>Home work #1</title>
+  </head>
+  <body>
+    <main>
+      <table class="notes_table" id="notes">
+        <thead>
+          <td>Name</td>
+          <td>Created</td>
+          <td>Category</td>
+          <td>Content</td>
+          <td>Dates</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </thead>
+      </table>
 
-  <title>Webpack</title>
-</head>
-<body>
+      <button>Create Note</button>
 
-</body>
+      <table class="summary_table">
+        <thead>
+          <td>Note category</td>
+          <td>Active</td>
+          <td>Archived</td>
+        </thead>
+        <tr>
+          <td>Task</td>
+          <td id='activeTask'></td>
+          <td id='archivedTask'></td>
+        </tr>
+        <tr>
+          <td>Random Thought</td>
+          <td id='activeRandomThought'></td>
+          <td id='archivedRandomThought'></td>
+        </tr>
+        <tr>
+          <td>Idea</td>
+          <td id='activeIdea'></td>
+          <td id='archivedIdea'></td>
+        </tr>
+      </table>
+    </main>
+
+    <footer>
+      <table class="notes_table">
+        <thead>
+          <td>Name</td>
+          <td>Created</td>
+          <td>Category</td>
+          <td>Content</td>
+          <td>Dates</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </thead>
+      </table>
+    </footer>
+  </body>
 </html>

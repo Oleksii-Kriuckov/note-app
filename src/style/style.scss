@@ -1,0 +1,26 @@
+body {
+  // font-family: 'Montserrat';
+  background-color: $back;
+  color: $text;
+}
+
+main,
+footer {
+  margin: auto;
+  width: fit-content;
+}
+
+.modal {
+width: 200px;
+height: 200px;
+position: absolute;
+top: 45%;
+left: 45%;
+display: block;
+}
+
+button {
+  display: block;
+  margin: 20px 10px 0 auto;
+
+}
