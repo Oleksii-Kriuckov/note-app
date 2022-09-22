@@ -49,7 +49,8 @@ export const addNewNote = (obj) => {
 };
 
 export const removeNote = (index) => {
-    notesArray.splice(index, 1);
-    createContent(notesArray)
+   let deleteElem = notesArray.splice(index, 1);
+    createContent()
     fillInSummaryTable()
+    return deleteElem[0]
 }

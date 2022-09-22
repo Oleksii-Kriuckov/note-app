@@ -31,16 +31,12 @@ export const addNewArchive = (obj) => {
                     }
                     break;
 
-                // case 1:
-                //     td.appendChild(createImage(pen, 'pen'));
-                //     break;
                 case 2:
                     td.appendChild(createImage(archive, 'unArchive'));
                     break;
 
-                default:
+                case 3:
                     td.appendChild(createImage(trash, 'removeArchive'))
-                    break;
             }
             tr.appendChild(td);
         }

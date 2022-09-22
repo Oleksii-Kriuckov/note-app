@@ -2,7 +2,8 @@ import { addNewNote } from './addRemoveNote';
 import { notesArray } from './data';
 import { archiveArray } from './data';
 import { countByCategory } from './count';
-import { removeAssignment } from './buttonAssignment';
+import { archiveAssignment, removeAssignment } from './buttonAssignment';
+import { addNewArchive } from './addRemoveArchive';
 
 const notes = document.querySelector('#notes');
 
@@ -17,7 +18,6 @@ export const createContent = () => {
     removeAssignment()
 };
 
-// isolate the following data
 export const fillInSummaryTable = () => {
     const activeTask = document.querySelector('#activeTask');
     activeTask.innerHTML = countByCategory(notesArray, 'Task');
@@ -40,12 +40,13 @@ export const fillInSummaryTable = () => {
 
 const archives = document.querySelector('#archives');
 
-export const fillInArchiveTable = (array) => {
+export const fillInArchiveTable = () => {
     while (archives.childElementCount > 1) {
         const lastChild = archives.lastChild
         archives.removeChild(lastChild)
     }
-    array.forEach(element => {
-        addNewNote(element)
+    archiveArray.forEach(element => {
+        addNewArchive(element)
     });
+    archiveAssignment();
 }

@@ -1,6 +1,7 @@
 import { createNote } from "./create";
 import { archiveArray } from "./data";
 import { removeNote } from "./addRemoveNote";
+import { fillInArchiveTable, fillInSummaryTable } from "./fillInTables";
 
 export const openCloseModal = () => {
     const openModalButton = document.querySelector('#openModalButton');
@@ -36,7 +37,8 @@ export const archiveAssignment = () => {
         element.addEventListener('click', () => {
             const archivedElem = removeNote(index);
             archiveArray.push(archivedElem);
-            
+            fillInArchiveTable();
+            fillInSummaryTable()
         })
     });
 }
