@@ -29,27 +29,27 @@
         <button id="closeButton">
           <img src="./img/cross.png" alt="cross" />
         </button>
-        <form action="">
+        <form action="" name="form">
           <input
             type="text"
             class="name"
             minlength="1"
             placeholder="Enter note name"
           />
-          <select name="" id="">
+          <select name="" id="category">
             <option value="Task">Task</option>
             <option value="Random Thought">Random Thought</option>
             <option value="Idea">Idea</option>
           </select>
           <!-- <input type="text" class="content" minlength="5"> -->
           <textarea
-            name=""
-            id=""
+            name="content"
+            id="content"
             cols="30"
             rows="5"
             placeholder="Enter note content"
           ></textarea>
-          <button id="createNoteButton">Create</button>
+          <button type="button" id="createNoteButton">Create</button>
         </form>
       </div>
 
@@ -78,7 +78,7 @@
     </main>
 
     <footer>
-      <table class="notes_table">
+      <table class="notes_table" id="archives">
         <thead>
           <td>Name</td>
           <td>Created</td>

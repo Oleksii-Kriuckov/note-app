@@ -1,13 +1,20 @@
-import { addNewNote } from './addNote';
+import { addNewNote } from './addRemoveNote';
 import { notesArray } from './data';
 import { archiveArray } from './data';
 import { countByCategory } from './count';
+import { removeAssignment } from './buttonAssignment';
 
+const notes = document.querySelector('#notes');
 
-export const createContent = (data) => {
-    data.forEach(element => {
+export const createContent = () => {
+    while (notes.childElementCount > 1) {
+        const lastChild = notes.lastChild
+        notes.removeChild(lastChild)
+    }
+    notesArray.forEach(element => {
         addNewNote(element)
     });
+    removeAssignment()
 };
 
 // isolate the following data
@@ -29,4 +36,16 @@ export const fillInSummaryTable = () => {
 
     const archivedIdea = document.querySelector('#archivedIdea');
     archivedIdea.innerHTML = countByCategory(archiveArray, 'Idea')
+}
+
+const archives = document.querySelector('#archives');
+
+export const fillInArchiveTable = (array) => {
+    while (archives.childElementCount > 1) {
+        const lastChild = archives.lastChild
+        archives.removeChild(lastChild)
+    }
+    array.forEach(element => {
+        addNewNote(element)
+    });
 }

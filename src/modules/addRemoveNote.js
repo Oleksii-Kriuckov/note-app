@@ -1,7 +1,11 @@
+import { createContent } from "./fillInTables"
+import { notesArray } from "./data";
+import { fillInSummaryTable } from "./fillInTables";
+import { removeAssignment } from "./buttonAssignment";
 import { createImage } from './create';
 import pen from '../img/pen.png'
 import archive from '../img/archive.png'
-import remove from '../img/trash.png'
+import trash from '../img/trash.png'
 
 const notes = document.querySelector('#notes');
 
@@ -26,21 +30,26 @@ export const addNewNote = (obj) => {
                     break;
                     
                 case 1:
-                    td.appendChild(createImage(remove));
+                    td.appendChild(createImage(pen, 'pen'));
                     break;
                 case 2:
-                    td.appendChild(createImage(archive));
+                    td.appendChild(createImage(archive, 'archive'));
                     break;
             
                 default:
-                    td.appendChild(createImage(pen))
+                    td.appendChild(createImage(trash, 'remove'))
                     break;
             }
             tr.appendChild(td);
         }
-    
         notes.appendChild(tr);
     } catch (error) {
         console.error(error)
     }
 };
+
+export const removeNote = (index) => {
+    notesArray.splice(index, 1);
+    createContent(notesArray)
+    fillInSummaryTable()
+}
