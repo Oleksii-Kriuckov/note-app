@@ -2,6 +2,7 @@ import { notesArray } from "./data";
 import { addNewNote } from "./addRemoveNote";
 import { fillInSummaryTable } from "./fillInTables";
 import { createContent } from "./fillInTables";
+import { nameInput, categorySelect, contentTextArea } from "./elements";
 
 export const createImage = (src, className) => {
     const img = new Image();
@@ -13,23 +14,27 @@ export const createImage = (src, className) => {
     return img
 }
 
-class Note {
-    constructor(name, category, content) {
-        this.name = name;
-        this.created = this.createDate()
-        this.category = category;
-        this.content = content;
-    }
-    createDate() {
+// class Note { //remake class
+//     constructor(name, category, content) {
+//         this.name = name;
+//         this.created = this.createDate()
+//         this.category = category;
+//         this.content = content;
+//     }
+//     createDate() {
+//         const date = new Date();
+//         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+//     }
+// }
+
+function createObject(name, category, content) {
+    function createDate() {
         const date = new Date();
         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
     }
+    return {name, created: createDate(), category, content}
 }
-
-export function createNote() {
-    const nameInput = document.querySelector('.name'); nameInput.innerHTML
-    const categorySelect = document.querySelector('#category');
-    const contentTextArea = document.querySelector('#content');
+export function createNote(param) {
     try {
         if (!nameInput.value) {
             throw { index: 0, message: "This field can't be empty" }
@@ -37,9 +42,15 @@ export function createNote() {
         if (contentTextArea.value.length < 5) {
             throw { index: 2, message: "This field must contain at least 5 characters" }
         }
+        console.log(param)
+        const newNote =  createObject(nameInput.value, categorySelect.value, contentTextArea.value);
+        if (param === 'create') {
+            notesArray.push(newNote)
+        } else {
+            notesArray.splice(param, 1, newNote)
+        }
+        console.log(notesArray)
 
-        const newNote = new Note(nameInput.value, categorySelect.value, contentTextArea.value);
-        notesArray.push(newNote)
         createContent()
         fillInSummaryTable()
         nameInput.value = '';

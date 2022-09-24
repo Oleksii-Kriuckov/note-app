@@ -2,10 +2,9 @@ import { addNewNote } from './addRemoveNote';
 import { notesArray } from './data';
 import { archiveArray } from './data';
 import { countByCategory } from './count';
-import { archiveAssignment, removeAssignment } from './buttonAssignment';
+import { archiveAssignment, editNoteAssignment, removeNoteAssignment } from './buttonAssignment';
 import { addNewArchive } from './addRemoveArchive';
-
-const notes = document.querySelector('#notes');
+import { notes } from './elements';
 
 export const createContent = () => {
     while (notes.childElementCount > 1) {
@@ -15,7 +14,9 @@ export const createContent = () => {
     notesArray.forEach(element => {
         addNewNote(element)
     });
-    removeAssignment()
+    removeNoteAssignment();
+    archiveAssignment();
+    editNoteAssignment();
 };
 
 export const fillInSummaryTable = () => {
@@ -48,5 +49,5 @@ export const fillInArchiveTable = () => {
     archiveArray.forEach(element => {
         addNewArchive(element)
     });
-    archiveAssignment();
+    
 }

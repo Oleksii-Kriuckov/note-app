@@ -1,13 +1,13 @@
 import { createContent } from "./fillInTables"
 import { notesArray } from "./data";
 import { fillInSummaryTable } from "./fillInTables";
-import { removeAssignment } from "./buttonAssignment";
+import { removeNoteAssignment } from "./buttonAssignment";
 import { createImage } from './create';
 import pen from '../img/pen.png'
 import archive from '../img/archive.png'
 import trash from '../img/trash.png'
+import { notes } from "./elements";
 
-const notes = document.querySelector('#notes');
 
 export const addNewNote = (obj) => {
     try {
@@ -30,7 +30,7 @@ export const addNewNote = (obj) => {
                     break;
                     
                 case 1:
-                    td.appendChild(createImage(pen, 'pen'));
+                    td.appendChild(createImage(pen, 'edit'));
                     break;
                 case 2:
                     td.appendChild(createImage(archive, 'archive'));

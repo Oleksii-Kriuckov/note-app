@@ -1,13 +1,9 @@
-import { createContent } from "./fillInTables"
-import { notesArray } from "./data";
-import { fillInSummaryTable } from "./fillInTables";
-import { removeNote } from "./buttonAssignment";
+import { fillInArchiveTable, fillInSummaryTable } from "./fillInTables"
+import { archiveArray } from "./data";
 import { createImage } from './create';
-// import pen from '../img/pen.png'
-import archive from '../img/archive.png'
+import unarchive from '../img/unarchive.png'
 import trash from '../img/trash.png'
-
-const archives = document.querySelector('#archives');
+import { archives } from "./elements";
 
 export const addNewArchive = (obj) => {
     try {
@@ -32,7 +28,7 @@ export const addNewArchive = (obj) => {
                     break;
 
                 case 2:
-                    td.appendChild(createImage(archive, 'unArchive'));
+                    td.appendChild(createImage(unarchive, 'unarchive'));
                     break;
 
                 case 3:
@@ -47,8 +43,7 @@ export const addNewArchive = (obj) => {
 };
 
 export const removeArchive = (index) => {
-    // notesArray.splice(index, 1);
-    // createContent(notesArray)
-    // fillInSummaryTable()
-    // removeNote()
+    archiveArray.splice(index, 1);
+    fillInArchiveTable();
+    fillInSummaryTable()
 }

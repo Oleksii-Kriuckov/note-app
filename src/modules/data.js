@@ -45,3 +45,4 @@ export const notesArray = [
 
   export const archiveArray = [];
 
+  export const index = {ind: 0}
