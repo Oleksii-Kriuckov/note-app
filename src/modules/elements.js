@@ -8,6 +8,3 @@ export const categorySelect = document.querySelector('#category');
 export const contentTextArea = document.querySelector('#content');
 export const createButton = document.querySelector('#createButton');
 export const editButton = document.querySelector('#editButton');
-
-
-

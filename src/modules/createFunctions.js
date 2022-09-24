@@ -3,6 +3,7 @@ import { fillInSummaryTable } from "./fillInTables";
 import { createContent } from "./fillInTables";
 import { nameInput, categorySelect, contentTextArea } from "./elements";
 import resetForm, { closeModalWindow, showError } from "./someFunctions";
+import { index } from "./data";
 
 export const createImage = (src, className) => {
     const img = new Image();
@@ -22,7 +23,7 @@ function createObject(name, category, content) {
     return { name, created: createDate(), category, content }
 }
 
-export function createNote(param) {
+function createNote(param) {
     try {
         if (!nameInput.value && contentTextArea.value.length < 5) {
             throw errors
@@ -54,4 +55,12 @@ export function createNote(param) {
         }
 
     }
+}
+
+export function create() {
+    createNote('create')
+}
+
+export function edit() {
+    createNote(index.ind)
 }
