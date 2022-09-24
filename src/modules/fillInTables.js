@@ -1,9 +1,9 @@
-import { addNewNote } from './addRemoveNote';
+import { addNewNote } from './NoteFunctions';
 import { notesArray } from './data';
 import { archiveArray } from './data';
-import { countByCategory } from './count';
+import { countByCategory } from './someFunctions';
 import { archiveAssignment, editNoteAssignment, removeArchiveAssignment, removeNoteAssignment, unArchiveAssignment } from './buttonAssignment';
-import { addNewArchive } from './addRemoveArchive';
+import { addNewArchive } from './ArchiveFunctions';
 import { notes } from './elements';
 
 export const createContent = () => {

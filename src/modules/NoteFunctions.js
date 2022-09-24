@@ -1,11 +1,11 @@
 import { createContent, fillInSummaryTable} from "./fillInTables"
 import { notesArray, index } from "./data";
-import { createImage } from './create';
+import { createImage } from './createFunctions';
 import pen from '../img/pen.png';
 import archive from '../img/archive.png';
 import trash from '../img/trash.png';
 import { createButton, editButton, nameInput, categorySelect, contentTextArea, notes } from "./elements";
-import { openModalWindow } from "./count";
+import { openModalWindow } from "./someFunctions";
 
 export const addNewNote = (obj) => {
     try {

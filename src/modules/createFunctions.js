@@ -2,7 +2,7 @@ import { notesArray, errors } from "./data";
 import { fillInSummaryTable } from "./fillInTables";
 import { createContent } from "./fillInTables";
 import { nameInput, categorySelect, contentTextArea } from "./elements";
-import { closeModalWindow } from "./count";
+import resetForm, { closeModalWindow, showError } from "./someFunctions";
 
 export const createImage = (src, className) => {
     const img = new Image();
@@ -20,15 +20,6 @@ function createObject(name, category, content) {
         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
     }
     return { name, created: createDate(), category, content }
-}
-
-function showError(error) {
-    document.forms[0].elements[error.ind].value = error.message;
-    document.forms[0].elements[error.ind].style.color = 'red';
-    setTimeout(() => {
-        document.forms[0].elements[error.ind].value = '';
-        document.forms[0].elements[error.ind].style.color = 'rgb(61, 61, 61)';
-    }, 3000)
 }
 
 export function createNote(param) {
@@ -52,8 +43,7 @@ export function createNote(param) {
 
         createContent()
         fillInSummaryTable()
-        nameInput.value = '';
-        contentTextArea.value = '';
+        resetForm()
         closeModalWindow()
     } catch (error) {
         if (error.message) {

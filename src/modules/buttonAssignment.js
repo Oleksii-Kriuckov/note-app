@@ -1,11 +1,11 @@
 import { archiveArray, index } from "./data";
-import { removeNote } from "./addRemoveNote";
+import { removeNote } from "./NoteFunctions";
 import { fillInArchiveTable, fillInSummaryTable } from "./fillInTables";
-import { removeArchive, unArchive } from "./addRemoveArchive";
-import { openModalWindow, closeModalWindow, addNote, edit } from "./count";
+import { removeArchive, unArchive } from "./ArchiveFunctions";
+import resetForm, { openModalWindow, closeModalWindow } from "./someFunctions";
 import { createNoteButton, closeButton, createButton, editButton } from "./elements";
-import { editNote } from "./addRemoveNote";
-import { createNote } from "./create";
+import { editNote } from "./NoteFunctions";
+import { createNote } from "./createFunctions";
 
 export const openCloseModal = () => {
     createNoteButton.addEventListener('click', () => {
@@ -13,9 +13,12 @@ export const openCloseModal = () => {
         createButton.style.display = 'block'
         editButton.style.display = 'none'
     })
-    createButton.addEventListener('click', () => { createNote('create') })
-    editButton.addEventListener('click', () =>  createNote(index.ind))
-    closeButton.addEventListener('click', closeModalWindow)
+    createButton.addEventListener('click', () => createNote('create'))
+    editButton.addEventListener('click', () => createNote(index.ind))
+    closeButton.addEventListener('click', () => {
+        resetForm()
+        closeModalWindow()
+    })
 }
 
 export const removeNoteAssignment = () => {
