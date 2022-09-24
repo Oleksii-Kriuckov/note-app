@@ -1,8 +1,8 @@
-import { notesArray } from "./data";
-import { addNewNote } from "./addRemoveNote";
+import { notesArray, errors } from "./data";
 import { fillInSummaryTable } from "./fillInTables";
 import { createContent } from "./fillInTables";
 import { nameInput, categorySelect, contentTextArea } from "./elements";
+import { closeModalWindow } from "./count";
 
 export const createImage = (src, className) => {
     const img = new Image();
@@ -14,54 +14,54 @@ export const createImage = (src, className) => {
     return img
 }
 
-// class Note { //remake class
-//     constructor(name, category, content) {
-//         this.name = name;
-//         this.created = this.createDate()
-//         this.category = category;
-//         this.content = content;
-//     }
-//     createDate() {
-//         const date = new Date();
-//         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
-//     }
-// }
-
 function createObject(name, category, content) {
     function createDate() {
         const date = new Date();
         return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
     }
-    return {name, created: createDate(), category, content}
+    return { name, created: createDate(), category, content }
 }
+
+function showError(error) {
+    document.forms[0].elements[error.ind].value = error.message;
+    document.forms[0].elements[error.ind].style.color = 'red';
+    setTimeout(() => {
+        document.forms[0].elements[error.ind].value = '';
+        document.forms[0].elements[error.ind].style.color = 'rgb(61, 61, 61)';
+    }, 3000)
+}
+
 export function createNote(param) {
     try {
+        if (!nameInput.value && contentTextArea.value.length < 5) {
+            throw errors
+        }
         if (!nameInput.value) {
-            throw { index: 0, message: "This field can't be empty" }
+            throw errors[0]
         }
         if (contentTextArea.value.length < 5) {
-            throw { index: 2, message: "This field must contain at least 5 characters" }
+            throw errors[1]
         }
-        // console.log(param)
-        const newNote =  createObject(nameInput.value, categorySelect.value, contentTextArea.value);
+
+        const newNote = createObject(nameInput.value, categorySelect.value, contentTextArea.value);
         if (param === 'create') {
             notesArray.push(newNote)
         } else {
             notesArray.splice(param, 1, newNote)
         }
-        // console.log(notesArray)
 
         createContent()
         fillInSummaryTable()
         nameInput.value = '';
         contentTextArea.value = '';
+        closeModalWindow()
     } catch (error) {
+        if (error.message) {
+            showError(error)
+        } else {
+            showError(error[0]);
+            showError(error[1]);
+        }
 
-        document.forms[0].elements[error.index].innerHTML = error.message;
-        document.forms[0].elements[error.index].style.color = 'red';
-        setTimeout(() => {
-            document.forms[0].elements[error.index].innerHTML = '';
-            document.forms[0].elements[error.index].style.color = 'rgb(61, 61, 61)';
-        }, 3000)
     }
 }

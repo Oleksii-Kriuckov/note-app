@@ -46,3 +46,8 @@ export const notesArray = [
   export const archiveArray = [];
 
   export const index = {ind: 0}
+
+  export const errors =  [
+    { ind: 0, message: "This field can't be empty" }, 
+    { ind: 2, message: "This field must contain at least 5 characters" }
+  ]
