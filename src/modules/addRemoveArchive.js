@@ -1,5 +1,5 @@
-import { fillInArchiveTable, fillInSummaryTable } from "./fillInTables"
-import { archiveArray } from "./data";
+import { createContent, fillInArchiveTable, fillInSummaryTable } from "./fillInTables"
+import { archiveArray, notesArray } from "./data";
 import { createImage } from './create';
 import unarchive from '../img/unarchive.png'
 import trash from '../img/trash.png'
@@ -42,8 +42,16 @@ export const addNewArchive = (obj) => {
     }
 };
 
-export const removeArchive = (index) => {
-    archiveArray.splice(index, 1);
+export const removeArchive = (i) => {
+    archiveArray.splice(i, 1);
+    fillInArchiveTable();
+    fillInSummaryTable()
+}
+
+export const unArchive = (i) => {
+    const deleteElem = archiveArray.splice(i, 1);
+    notesArray.push(deleteElem[0]);
+    createContent()
     fillInArchiveTable();
     fillInSummaryTable()
 }

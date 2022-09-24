@@ -2,7 +2,7 @@ import { addNewNote } from './addRemoveNote';
 import { notesArray } from './data';
 import { archiveArray } from './data';
 import { countByCategory } from './count';
-import { archiveAssignment, editNoteAssignment, removeNoteAssignment } from './buttonAssignment';
+import { archiveAssignment, editNoteAssignment, removeArchiveAssignment, removeNoteAssignment, unArchiveAssignment } from './buttonAssignment';
 import { addNewArchive } from './addRemoveArchive';
 import { notes } from './elements';
 
@@ -49,5 +49,6 @@ export const fillInArchiveTable = () => {
     archiveArray.forEach(element => {
         addNewArchive(element)
     });
-    
+    unArchiveAssignment()
+    removeArchiveAssignment()
 }

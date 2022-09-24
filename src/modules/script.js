@@ -6,5 +6,3 @@ import {archiveAssignment, openCloseModal, removeNoteAssignment} from './buttonA
 createContent()
 fillInSummaryTable()
 openCloseModal()
-removeNoteAssignment()
-archiveAssignment()

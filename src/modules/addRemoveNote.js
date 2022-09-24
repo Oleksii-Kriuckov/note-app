@@ -1,13 +1,11 @@
-import { createContent } from "./fillInTables"
-import { notesArray } from "./data";
-import { fillInSummaryTable } from "./fillInTables";
-import { removeNoteAssignment } from "./buttonAssignment";
+import { createContent, fillInSummaryTable} from "./fillInTables"
+import { notesArray, index } from "./data";
 import { createImage } from './create';
-import pen from '../img/pen.png'
-import archive from '../img/archive.png'
-import trash from '../img/trash.png'
-import { notes } from "./elements";
-
+import pen from '../img/pen.png';
+import archive from '../img/archive.png';
+import trash from '../img/trash.png';
+import { createButton, editButton, nameInput, categorySelect, contentTextArea, notes } from "./elements";
+import { openModalWindow } from "./count";
 
 export const addNewNote = (obj) => {
     try {
@@ -53,4 +51,14 @@ export const removeNote = (index) => {
     createContent()
     fillInSummaryTable()
     return deleteElem[0]
+}
+
+export const editNote = (i) => {
+    openModalWindow()
+    editButton.style.display = 'block';
+    createButton.style.display = 'none';
+    index.ind = i
+    nameInput.value = notesArray[i].name;
+    categorySelect.value = notesArray[i].category;
+    contentTextArea.value = notesArray[i].content;
 }

@@ -42,14 +42,14 @@ export function createNote(param) {
         if (contentTextArea.value.length < 5) {
             throw { index: 2, message: "This field must contain at least 5 characters" }
         }
-        console.log(param)
+        // console.log(param)
         const newNote =  createObject(nameInput.value, categorySelect.value, contentTextArea.value);
         if (param === 'create') {
             notesArray.push(newNote)
         } else {
             notesArray.splice(param, 1, newNote)
         }
-        console.log(notesArray)
+        // console.log(notesArray)
 
         createContent()
         fillInSummaryTable()
